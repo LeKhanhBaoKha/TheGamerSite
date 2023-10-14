@@ -1,0 +1,24 @@
+main{
+    /* background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa); */
+    background: linear-gradient(to left, rgba(51, 12, 206, 0.3), rgba(159, 140, 245, 0.2));
+}
+footer{
+    background-color: white!important;
+    color: black!important;
+}
+p{
+    overflow: hidden;
+}
+#des{
+    max-height: 50px;
+}
+
+label{
+    color:white;
+}
+
+body{
+    background: url(/images/pantheon.png) no-repeat fixed center;
+	background-size: cover;
+}
