@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\User::factory(10)->create();
+        \App\Models\User::find(1)->update(['is_admin'=>true]);
         $this->call([
             categorySeeder::class,
             ProductSeeder::class

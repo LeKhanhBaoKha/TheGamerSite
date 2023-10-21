@@ -11,6 +11,14 @@
     <div class="product">
         <h3><a href="{{route('products.index');}}" class="nav-link text-light">Products</a></h3>
     </div>
+    <div class="ml-auto">
+        @auth
+            <h1 class="text-light">Hello {{Auth::user()->name}}</h1>
+        @endauth
+        @guest
+            <a href="{{route('login')}}" class="btn btn-danger">Login</a>
+        @endguest
+    </div>
 </div>
 @endsection
 

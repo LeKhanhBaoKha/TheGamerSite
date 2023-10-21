@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,15 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/products',ProductController::class);
-
-Route::get('/', function(){
-    return view('product-index');
+// bắt buộc đăng nhập
+Route::middleware('auth')->group(function(){
+    Route::resource('/products',ProductController::class)->except(['index','show']);
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
+
+Route::get('/login', [LoginController::class,'showForm'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+Route::resource('/products',ProductController::class)->only(['index','show']);
+
+
 Route::get('/', function () {
     return view('home');
 });
-
 //bước 1 tạo model với tham số php artisan make:model category --all
 //bước 2 thêm các cột vào migration
 //bước 3 thêm một migration tạo khóa ngoại (php artisan make:migration foreign_keys)
@@ -42,6 +48,20 @@ Route::get('/', function () {
 //8.4: edit + update
 //8.5 destroy
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        // 18/10
+//Đăng nhập, đăng xuất
+//bước 1: sửa migration + seeder
+    // databaseeder thêm:
+    // \App\Models\User::factory(10)->create();
+    // \App\Models\User::find(1)->update(['is_admin'=>true]);
+    // create_user_table thêm:
+    // $table->boolean('is_admin')->default(false);
+// bước 2: chạy lại migration, seeder
+//     php artisan migrate:fresh --seed
+// bước 3: tạo view đăng nhập
+//bước 4: tạo route+controller php artisan make:controller LoginController
+// bước này dùng code có sẵn trong laravel docs https://laravel.com/docs/10.x/authentication#authenticating-users
+    //gồm Manually Authenticating Users và Logging Out
+// bước 5 sửa view layout
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//bước 6 phân quyền người dùng
