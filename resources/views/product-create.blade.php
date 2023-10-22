@@ -9,23 +9,13 @@
         <h3><i class="fa-solid fa-chevron-right"></i></h3>
     </div>
     <div>
-        <h3> <a href="{{route('products.index');}}" class="nav-link text-light">Products</a></h3>
+        <h3> <a href="{{route('products.index');}}" class="nav-link text-dark">Products</a></h3>
     </div>
     <div>
-        <h3>
-            <i class="fa-solid fa-chevron-right"></i>
-        </h3>
+        <h3><i class="fa-solid fa-chevron-right"></i></h3>
     </div>
     <div>
-        <h3> <p class="m-0 p-0 ml-3 text-light">Add product</p></h3>
-    </div>
-    <div class="ml-auto">
-        @auth
-            <h1 class="text-light">Hello {{Auth::user()->name}}</h1>
-        @endauth
-        @guest
-            <a href="{{route('login')}}" class="btn btn-danger">Login</a>
-        @endguest
+        <h3> <p class="m-0 p-0 ml-3 text-dark">Add product</p></h3>
     </div>
 </div>
 @endsection

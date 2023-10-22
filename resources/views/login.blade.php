@@ -1,42 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'Login')
-@section('header')
-<div class="d-flex align-items-center">
-    @parent
-    <div class="ml-auto">
-        @auth
-            <h1>Hello {{Auth::user()->name}}</h1>
-        @endauth
-        @guest
-            <a href="{{route('login')}}" class="btn btn-danger">Login</a>
-        @endguest
-    </div>
-</div>
-@endsection
-@section('content')
-    {{-- <div class="row justify-content-center container">
-        <form action="" class="col-md-12 w-250px" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="email" class="text-light font-weight-bold">Email</label>
-                <input type="email" name="email" class="form-control">
-                <p class="text-light font-weight-bold text-uppercase">
-                    @if($errors->has('email')){{$errors->first('email')}}@endif
-                </p>
-            </div>
 
-            <div class="form-group">
-                <label for="password" class="text-light font-weight-bold">Password</label>
-                <input type="password" name="password" class="form-control">
-                <p class="text-light font-weight-bold text-uppercase">
-                    @if($errors->has('password')){{$errors->first('password')}}@endif
-                </p>
-            </div>
-            <button type="submit" class="btn btn-success">Login</button>
-        </form>
-    </div> --}}
-    <div class="container h-100">
+@section('content')
+    <div class="container h-100" id="login-form">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
 				<div class="d-flex justify-content-center">

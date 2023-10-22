@@ -5,21 +5,10 @@
 <link rel="stylesheet" href="/css/animate.css">
 @endsection
 @section('header')
-<div class="col-md-12 d-inline-flex align-items-center">
-    @parent
     <div><h3><i class="fa-solid fa-chevron-right"></i></h3></div>
     <div class="product">
-        <h3><a href="{{route('products.index');}}" class="nav-link text-light">Products</a></h3>
+        <h3><a href="{{route('products.index');}}" class="nav-link text-dark">Products</a></h3>
     </div>
-    <div class="ml-auto">
-        @auth
-            <h1 class="text-light">Hello {{Auth::user()->name}}</h1>
-        @endauth
-        @guest
-            <a href="{{route('login')}}" class="btn btn-danger">Login</a>
-        @endguest
-    </div>
-</div>
 @endsection
 
 @section('content')

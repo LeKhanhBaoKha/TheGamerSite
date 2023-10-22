@@ -24,43 +24,54 @@
     @yield('CSS')
 </head>
 <body>
-    <main>
-        <div class="h-10px w-100 bg-light text-center text-dark p-2 mb-1"><h3 >Lê Khánh Bảo Kha - 0306211041</h3></div>
-        <div class="container">
-            @section('header')
-            <div class="home"><h3><a href="{{route('products.index');}}" class="nav-link text-light"><i class="fa-solid fa-house text-dark"></i> Home </a></h3></div>
-
-            @show
-                <div class="py-4 container">
-                    @yield('content')
+    <header>
+        @show
+        <div class="h-10px w-100 bg-light text-center text-dark p-2 mb-1 d-flex justify-content-around ">
+            <div class="d-flex align-items-center first">
+                <div class="home">
+                    <h3>
+                        <a href="{{route('products.index');}}" class="nav-link text-dark">
+                            <i class="fa-solid fa-house text-dark"></i> Home
+                        </a>
+                    </h3>
                 </div>
-        </div>
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-dark"><h2>Code by Kha <i class="fa-regular fa-face-smile"></i></h2></span>
+                @yield('header')
             </div>
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-              <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-facebook"></i></h2></a></li>
-              <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-google"></i></i></h2></a></li>
-              <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-youtube"></i></h2></a></li>
-            </ul>
-        </footer>
+            <div class="second">
+                @auth
+                    <h1 class="m-0 pt-2">Hello {{Auth::user()->name}}</h1>
+                @endauth
+                @guest
+                    <h3 class="m-0 pt-2" >Lê Khánh Bảo Kha - 0306211041</h3>
+                @endguest
+            </div>
+            <div class="third">
+                @auth
+                    <a href="{{route('logout')}}" class="btn btn-danger mt-2">Logout</a>
+                @endauth
+                @guest
+                    <a href="{{route('login')}}" class="btn btn-danger mt-2">Login</a>
+                @endguest
+            </div>
+        </div>
+    </header>
+    <main class="d-flex flex-column align-items-start">
+        <div class="py-4 container">
+            @yield('content')
+        </div>
     </main>
-
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-1 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+        <span class="mb-3 mb-md-0 text-dark"><h2>Code by Kha <i class="fa-regular fa-face-smile"></i></h2></span>
+        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-facebook"></i></h2></a></li>
+        <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-google"></i></i></h2></a></li>
+        <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-youtube"></i></h2></a></li>
+        </ul>
+    </footer>
 </body>
 <script src="/bootstrap/css/bootstrap.min.css"></script>
 <script src="/fontawesome/js/all.min.js"></script>
 <script src="/jquery/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-    $("header a").hover(function(){
-        $(this).css("transform","scale(1.1)");
-        $(this).css("transition", "all .5s");
-    },
-    function(){
-        $(this).css("transition","all .5s");
-        $(this).css("transform","scale(1)");
-    })
-})
-</script>
 </html>
