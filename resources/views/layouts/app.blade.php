@@ -52,6 +52,9 @@
                 @guest
                     <a href="{{route('login')}}" class="btn btn-danger mt-2">Login</a>
                 @endguest
+                @can('isAdmin')
+                    <a href="{{route('dashboard')}}" class="btn btn-danger mt-2">Admin dasboard</a>
+                @endcan
             </div>
         </div>
     </header>
