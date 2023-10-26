@@ -58,11 +58,10 @@ class ProductController extends Controller
 
         $request->validate([
             'name' => "required|min:5|max:30",
-
         ],[
-            'required' => ':attribute khong bo trong'
+            'required' => ':attribute không bỏ trống'
         ],[
-            'name' => 'ten dang nhap'
+            'name' => 'tên đăng nhập'
         ]);
         $p = Product::create([
             'name' => $request -> name,
@@ -73,7 +72,7 @@ class ProductController extends Controller
             'image' => $request -> image
         ]);
         // đường dẫn(path) lưu hình có id sản phẩm để dễ quản lý
-        $path = $request ->image -> store('upload/product/'.$p->id,'public');
+        $path = $request -> image -> store('upload/product/'.$p->id,'public');
         $p -> image = $path;
         $p->save();
 
@@ -117,12 +116,12 @@ class ProductController extends Controller
         //kiem tra co cap nhat hinh khong
         $path=$product -> image;
         if($request->hasFile('image') && $request->image->isvalid()){
-            $path = $request->image->store('storage/upload/product/'.$product->id,'public');
+            $path = $request->image->store('upload/product/'.$product->id,'public');
         }
 
         $product -> fill([
             'name' => $request -> name,
-            'price' => $request -> price,
+            'price' => $request -> pr0ice,
             'category_id' => $request -> category,
             'description' => $request -> description,
             'image' => $path

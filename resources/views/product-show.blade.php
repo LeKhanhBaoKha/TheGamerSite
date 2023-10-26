@@ -7,13 +7,13 @@
         <h3><i class="fa-solid fa-chevron-right"></i> </h3>
     </div>
     <div>
-        <h3><a href="{{route('products.index');}}" class="nav-link text-dark">Products</a></h3>
+        <h3><a href="{{route('products.index')}}" class="nav-link text-dark nav" id='products'>Products</a></h3>
     </div>
     <div>
         <h3><i class="fa-solid fa-chevron-right"></i></h3>
     </div>
     <div>
-        <h3> <a href="#" class="nav-link text-dark">{{$product->name}}</a></h3>
+        <h3> <a href="#" class="nav-link text-dark">Details</a></h3>
     </div>
 @endsection
 
@@ -49,4 +49,11 @@
         var productImage = document.getElementById('product-image').getAttribute('data-image');
         console.log(productImage);
     </script>
+@endsection
+
+@section('script')
+<script>
+    document.getElementById('home').innerHTML = `<i class="fa-solid fa-house text-dark"></i>`;
+    document.getElementById('products').innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
+</script>
 @endsection

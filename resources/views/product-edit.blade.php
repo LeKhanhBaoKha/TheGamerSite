@@ -9,22 +9,13 @@
         <h3><i class="fa-solid fa-chevron-right"></i></h3>
     </div>
     <div>
-        <h3> <a href="{{route('products.index');}}" class="nav-link text-dark">Products</a></h3>
+        <h3> <a href="{{route('products.index')}}" class="nav-link text-dark nav"><i class="fa-solid fa-cart-shopping"></i></a></h3>
     </div>
     <div>
         <h3><i class="fa-solid fa-chevron-right"></i></h3>
     </div>
     <div>
-        <h3> <a href="" class="nav-link text-dark" style="pointer-events: none;">Edit {{$product->name}}</a></h3>
-    </div>
-    <div class="ml-auto">
-        @auth
-        <a href="{{route('logout')}}" class="btn btn-danger">Logout</a>
-
-        @endauth
-        @guest
-            <a href="{{route('login')}}" class="btn btn-danger">Login</a>
-        @endguest
+        <h3> <a href="" class="nav-link text-dark nav" style="pointer-events: none;">Edit</a></h3>
     </div>
 </div>
 @endsection
@@ -87,5 +78,12 @@
         </p>
     </div>
     <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i> Submit</button>
+    
 </form>
+@endsection
+
+@section('script')
+<script>
+    document.getElementById('home').innerHTML = `<i class="fa-solid fa-house text-dark"></i>`;
+</script>
 @endsection

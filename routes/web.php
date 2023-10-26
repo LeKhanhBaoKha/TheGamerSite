@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function(){
     Route::resource('/products',ProductController::class)->except(['index','show']);
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
     // bắt buộc đăng nhập tài khoản admin
     Route::prefix('admin')->middleware('can:isAdmin')->group(function(){
+
         Route::get('dashboard', function(){
             return view('admin.dashboard');
         })->name('dashboard');
@@ -34,7 +34,7 @@ Route::resource('/products',ProductController::class)->only(['index','show']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
-    return view('home');
+    return redirect('/products');
 });
 //bước 1 tạo model với tham số php artisan make:model category --all
 //bước 2 thêm các cột vào migration
@@ -73,6 +73,11 @@ Route::get('/', function () {
 //bước 6 phân quyền người dùng
 // 23/10
 // bước 7 phân quyền cho admin
-    // vào file AuthSErviceProvider trong thư mục Provider
+    // vào file AuthSErviceProvider trong thư mục Provider, định nghĩa isAdmin
     // tạo folder admin, tạo file dashboar.blade.php
     // vào phần header của layout thêm nút để admin truy cập admin dashboard
+    // vào web.php sửa những phần mà chỉ có admin có quyền thấy và chỉnh sửa
+
+// 24/10: đăng nhập đăng xuất với API
+// bước 1: tạo controller + route (code mẫu trong docs)
+

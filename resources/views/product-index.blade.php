@@ -7,7 +7,7 @@
 @section('header')
     <div><h3><i class="fa-solid fa-chevron-right"></i></h3></div>
     <div class="product">
-        <h3><a href="{{route('products.index');}}" class="nav-link text-dark">Products</a></h3>
+        <h3><a href="{{route('products.index')}}" class="nav-link text-dark nav"><i class="fa-solid fa-cart-shopping"></i> Products</a></h3>
     </div>
 @endsection
 
@@ -31,35 +31,75 @@
                     <form action="{{route('products.destroy',['product'=>$product])}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#Modal-{{ $product->id }}">
+                        <button type="button" class="btn btn-danger" onclick="showModal({{ $product->id }})">
                             <i class="fa-solid fa-trash"></i> Delete
                         </button>
+                        <div id="Modal-{{ $product->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal({{$product->id}})">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Bạn có chắc chắn muốn xóa sản phẩm này không?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal({{$product->id}})">Không</button>
+                                        <button type="submit" class="btn btn-primary">Có</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-    @endforeach
-    @foreach ($lst as $product)
-        <div class="modal fade" id="Modal-{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Bạn có chắc chắn muốn xóa sản phẩm này không?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
-                        <button type="button" class="btnbtn-primary">Có</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     @endforeach
     </div>
 
+@endsection
+
+@section('script')
+<script>
+    // function showModal(productId) {
+    //     $('#Modal-' + productId).modal('show');
+    // }
+
+    // function hideModal(productId) {
+    //     $('#Modal-' + productId).modal('hide');
+    // }
+
+    function showModal(productId) {
+        var modal = document.getElementById('Modal-' + productId);
+        modal.classList.add('show');
+        modal.style.display = 'block';
+    }
+
+    function hideModal(productId) {
+        var modal = document.getElementById('Modal-' + productId);
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+    }
+
+    // function deleteProduct(productId) {
+    //     // Gửi yêu cầu xóa sản phẩm đến server
+    //     $.ajax({
+    //         url: '/products/' + productId,
+    //         type: 'DELETE',
+    //         data: {
+    //             "_token": "{{ csrf_token() }}"
+    //         },
+    //         success: function (response) {
+    //             // Xóa sản phẩm khỏi giao diện nếu xóa thành công
+    //             $('#product-' + productId).remove();
+    //             // Ẩn modal form
+    //             hideModal(productId);
+    //         }
+    //     });
+    // }
+</script>
 @endsection

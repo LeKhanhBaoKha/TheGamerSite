@@ -103,3 +103,18 @@ body {
 #login-form{
     margin-top:50px;
 }
+
+.nav{
+    --clr:#34a5ff;
+}
+.nav:hover{
+    background: var(--clr);
+    transform: scale(1.02);
+    box-shadow: 0 0 35px var(--clr);
+    transition: 0.2s;
+    border-radius: 10px;
+}
+div>a:hover{
+    transform: scale(1.03);
+    transition: 0.2s;
+}

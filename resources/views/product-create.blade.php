@@ -9,13 +9,13 @@
         <h3><i class="fa-solid fa-chevron-right"></i></h3>
     </div>
     <div>
-        <h3> <a href="{{route('products.index');}}" class="nav-link text-dark">Products</a></h3>
+        <h3><a href="{{route('products.index')}}" class="nav-link text-dark nav"><i class="fa-solid fa-cart-shopping"></i></a></h3>
     </div>
     <div>
         <h3><i class="fa-solid fa-chevron-right"></i></h3>
     </div>
     <div>
-        <h3> <p class="m-0 p-0 ml-3 text-dark">Add product</p></h3>
+        <h3><p class="m-0 p-0 ml-3 text-dark">Add product</p></h3>
     </div>
 </div>
 @endsection
@@ -78,4 +78,10 @@
 
     <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i> Submit</button>
 </form>
+@endsection
+
+@section('script')
+<script>
+    document.getElementById('home').innerHTML = `<i class="fa-solid fa-house text-dark"></i>`;
+</script>
 @endsection
