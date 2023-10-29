@@ -36,6 +36,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', function () {
     return redirect('/products');
 });
+Route::resource('/products',ProductController::class)->only(['userindex','usershow']);
 //bước 1 tạo model với tham số php artisan make:model category --all
 //bước 2 thêm các cột vào migration
 //bước 3 thêm một migration tạo khóa ngoại (php artisan make:migration foreign_keys)

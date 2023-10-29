@@ -36,6 +36,20 @@ class ProductController extends Controller
         return view('product-index',['lst'=>$lst]);
     }
 
+    public function userindex()
+    {
+        $lst=Product::all();
+
+        foreach($lst as $product)
+        {
+            $this->fixImage($product);
+        }
+        return view('user.product-index-user',['lst'=>$lst]);
+    }
+
+    public function usershow(Product $product){
+        return view('user.product-show-user', ['product'=>$product]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -144,6 +158,4 @@ class ProductController extends Controller
 
         return redirect()-> route('products.index');
     }
-
-
 }

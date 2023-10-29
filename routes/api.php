@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 // Lưu ý: các route trong file này đều có prefix '/api' và các middleware trong group 'api'
 
 Route::post('/login', [ApiLoginController::class, 'login']);
+Route::apiResource('/product', ApiProductController::class)->only(['index','show']);
 //bắt buộc đăng nhập (trong request có kèm token hợp lệ)
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/tokens', [ApiLoginController::class, 'showTokens']);
@@ -30,7 +31,7 @@ Route::middleware('auth:sanctum')->group(function(){
         return $request->user();
     });
     //cách 1: tạo controller mới cho api
-    Route::apiResource('/product', ApiProductController::class);
+    Route::apiResource('/product', ApiProductController::class)->except(['index','show']);
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

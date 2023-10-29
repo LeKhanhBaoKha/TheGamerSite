@@ -20,7 +20,7 @@
     @foreach ($lst as $product)
         <div class="col-sm-3 mb-3">
             <div class="card h-100">
-                <img src="{{$product->image}}" alt="" class="card-img-top" style="max-height: 140px; max-width:246px;">
+                <img src="{{$product->image}}" alt="" class="card-img-top img-fluid" style="max-height: 120px; max-width:252px;">
                 <div class="card-body">
                     <h4 class="card-title"><a href="{{route('products.show',['product'=>$product])}}" style="color:black">{{$product->name}} </a> </h4>
                     <p class="card-text text-success">${{ number_format($product->price, 2) }}</p>
