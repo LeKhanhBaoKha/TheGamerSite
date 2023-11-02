@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title','Product details')
+@section('title','user Product details')
 
 @section('header')
     <div>
         <h3><i class="fa-solid fa-chevron-right"></i> </h3>
     </div>
     <div>
-        <h3><a href="{{route('products.index')}}" class="nav-link text-dark nav" id='products'>Products</a></h3>
+        <h3><a href="" class="nav-link text-dark nav" id='products'>Products</a></h3>
     </div>
     <div>
         <h3><i class="fa-solid fa-chevron-right"></i></h3>
@@ -29,7 +29,7 @@
                 <p class="card-text">{{$product->description}}</p>
             </div>
             <div class="card-footer">
-                <a href="{{route('products.index')}}" class="btn btn-secondary">Turn back</a>
+                <a href="" class="btn btn-secondary">Turn back</a>
             </div>
         </div>
     </div>

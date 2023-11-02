@@ -25,6 +25,8 @@ class ProductController extends Controller
             $product->image='/images/noImage.jpg';
         }
     }
+
+
     public function index()
     {
         $lst=Product::all();
@@ -46,7 +48,6 @@ class ProductController extends Controller
         }
         return view('user.product-index-user',['lst'=>$lst]);
     }
-
     public function usershow(Product $product){
         return view('user.product-show-user', ['product'=>$product]);
     }

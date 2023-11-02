@@ -84,22 +84,5 @@
         modal.classList.remove('show');
         modal.style.display = 'none';
     }
-
-    // function deleteProduct(productId) {
-    //     // Gửi yêu cầu xóa sản phẩm đến server
-    //     $.ajax({
-    //         url: '/products/' + productId,
-    //         type: 'DELETE',
-    //         data: {
-    //             "_token": "{{ csrf_token() }}"
-    //         },
-    //         success: function (response) {
-    //             // Xóa sản phẩm khỏi giao diện nếu xóa thành công
-    //             $('#product-' + productId).remove();
-    //             // Ẩn modal form
-    //             hideModal(productId);
-    //         }
-    //     });
-    // }
 </script>
 @endsection

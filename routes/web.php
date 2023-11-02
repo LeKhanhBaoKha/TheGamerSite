@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 // bắt buộc đăng nhập
 Route::middleware('auth')->group(function(){
     Route::resource('/products',ProductController::class)->except(['index','show']);
@@ -30,13 +31,20 @@ Route::middleware('auth')->group(function(){
 
 Route::get('/login', [LoginController::class,'showForm'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
-Route::resource('/products',ProductController::class)->only(['index','show']);
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+// Route::resource('/products', ProductController::class)->only(['index', 'show']);
+Route::get('/user/products', [ProductController::class, 'userindex'])->name('products.userindex');
+Route::get('/user/products/{product}', [ProductController::class, 'usershow'])->name('products.usershow');
+
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 
 Route::get('/', function () {
     return redirect('/products');
 });
-Route::resource('/products',ProductController::class)->only(['userindex','usershow']);
+
 //bước 1 tạo model với tham số php artisan make:model category --all
 //bước 2 thêm các cột vào migration
 //bước 3 thêm một migration tạo khóa ngoại (php artisan make:migration foreign_keys)
