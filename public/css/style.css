@@ -32,18 +32,18 @@ body{
         transparent
     );
     height: 70px;
-    width:1px;
+    width: 3px;
     position: absolute;
     left: -1px;
-    top: 65%;
+    top: 85%;
     content: "";
     opacity: 0;
+    transition: top 600ms ease, opacity 600ms ease;
 }
 
 .card:hover::after{
-    top: 25%;
+    top:10%;
     opacity: 1;
-    transition: top 600ms ease, opacity 600ms ease;
 }
 
 .card{
