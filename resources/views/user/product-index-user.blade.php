@@ -4,6 +4,7 @@
 @section('CSS')
 <link rel="stylesheet" href="/css/animate.css">
 @endsection
+
 @section('header')
     <div><h3><i class="fa-solid fa-chevron-right"></i></h3></div>
     <div class="product">
@@ -22,16 +23,15 @@
             <div class="card h-100">
                 <img src="{{$product->image}}" alt="img" class="card-img-top img-fluid" style="max-height: 120px; max-width:252px;">
                 <div class="card-body">
-                    <h4 class="card-title"><a href="" style="color:black">{{$product->name}} </a> </h4>
+                    <h4 class="card-title"><a href="{{route('products.usershow', ['product'=>$product])}}" style="color:black">{{$product->name}} </a> </h4>
                     <p class="card-text text-success">${{ number_format($product->price, 2) }}</p>
                     <p class="card-text" id="des">{{$product->description}}</p>
                 </div>
                 <div class="card-footer bg-white border-0">
-                    <a href="" class="btn btn-primary">Check out!</a>
+                    <a href="{{route('products.usershow',['product'=>$product])}}" class="btn btn-primary">Check out!</a>
                 </div>
             </div>
         </div>
-
     @endforeach
     </div>
 

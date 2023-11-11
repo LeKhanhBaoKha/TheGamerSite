@@ -25,8 +25,30 @@ body{
 }
 
 
+.card::after{
+    background: linear-gradient(
+        transparent,
+        mediumslateblue,
+        transparent
+    );
+    height: 70px;
+    width:1px;
+    position: absolute;
+    left: -1px;
+    top: 65%;
+    content: "";
+    opacity: 0;
+}
 
+.card:hover::after{
+    top: 25%;
+    opacity: 1;
+    transition: top 600ms ease, opacity 600ms ease;
+}
 
+.card{
+    position: relative;
+}
 
 
 /* logincss */

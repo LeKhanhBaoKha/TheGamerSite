@@ -136,7 +136,7 @@ class ProductController extends Controller
 
         $product -> fill([
             'name' => $request -> name,
-            'price' => $request -> pr0ice,
+            'price' => $request -> price,
             'category_id' => $request -> category,
             'description' => $request -> description,
             'image' => $path

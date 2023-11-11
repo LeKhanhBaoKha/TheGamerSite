@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\testlogin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,13 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
     return redirect('/productsList');
+});
+
+Route::controller(testlogin::class)->group(function(){
+    Route::get('/testlogin','viewLogin');
+    Route::post('testlogin', 'login');
+    Route::get('/testSignup', 'viewSignup');
+    Route::post('/testSignup', 'signup');
 });
 
 //bước 1 tạo model với tham số php artisan make:model category --all

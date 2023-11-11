@@ -24,7 +24,7 @@
 {{-- lưu ý enctype của form để upload file --}}
 <form action="{{route('products.update',['product' => $product])}}" method="POST" enctype="multipart/form-data" class="w-70 m-auto border p-5">
     @csrf
-    @method("PUT")
+    @method("PATCH")
 
     {{-- name --}}
     <div class="mb-3">
@@ -78,7 +78,7 @@
         </p>
     </div>
     <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i> Submit</button>
-    
+
 </form>
 @endsection
 
