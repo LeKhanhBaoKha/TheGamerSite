@@ -159,4 +159,16 @@ class ProductController extends Controller
 
         return redirect()-> route('products.index');
     }
+
+    public function search(Request $request){
+        $query = $request->input('query');
+        $product = Product::where('name', 'like',`%$query%`)->get();
+        if($product -> count() > 0)
+        {
+            return view('user.product-show-user', ['product'=> $product]);
+        }
+        else{
+            return 0;
+        }
+    }
 }

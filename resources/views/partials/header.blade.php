@@ -11,13 +11,11 @@
             </div>
             @yield('header')
         </div>
-        <div class="second d-flex flex-row w-auto justify-content-center col-4">
-            @auth
-                <h1 class="m-0 pt-2">Hello {{Auth::user()->name}}</h1>
-            @endauth
-            @guest
-                <h3 class="m-0 pt-2">Lê Khánh Bảo Kha - 0306211041</h3>
-            @endguest
+        <div class="d-flex">
+            <form action="/search" method="get">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
         </div>
         <div class="third col-4 d-flex flew-row justify-content-end mt-2"  style="height:40px; gap:5px;">
             @auth
@@ -30,5 +28,6 @@
                 <a href="{{route('dashboard')}}" class="btn btn-danger">Admin dasboard</a>
             @endcan
         </div>
+
     </div>
 </header>

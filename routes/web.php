@@ -39,6 +39,7 @@ Route::get('/productsList/{product}', [ProductController::class, 'usershow'])->n
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::post('/search', [ProductController::class,'search'])->name('search');
 
 Route::get('/', function () {
     return redirect('/productsList');
