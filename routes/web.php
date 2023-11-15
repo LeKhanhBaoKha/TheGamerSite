@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\testlogin;
 use Illuminate\Support\Facades\Route;
 
@@ -39,11 +40,13 @@ Route::get('/productsList/{product}', [ProductController::class, 'usershow'])->n
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::post('/search', [ProductController::class,'search'])->name('search');
+Route::get('/search', [ProductController::class,'search'])->name('search');
 
 Route::get('/', function () {
     return redirect('/productsList');
 });
+
+Route::get('/SignUp', [SignUpController::class,'SignUpForm'])->name('SignUp');
 
 Route::controller(testlogin::class)->group(function(){
     Route::get('/testlogin','viewLogin');

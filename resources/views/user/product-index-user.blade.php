@@ -8,7 +8,7 @@
 @section('header')
     <div><h3><i class="fa-solid fa-chevron-right"></i></h3></div>
     <div class="product">
-        <h3><a href="" class="nav-link text-dark nav"><i class="fa-solid fa-cart-shopping"></i> Products</a></h3>
+        <h3><a href="{{route('products.userindex')}}" class="nav-link text-dark nav"><i class="fa-solid fa-cart-shopping"></i> Products</a></h3>
     </div>
 @endsection
 

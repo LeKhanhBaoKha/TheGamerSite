@@ -161,9 +161,10 @@ class ProductController extends Controller
     }
 
     public function search(Request $request){
-        $query = $request->input('query');
-        $product = Product::where('name', 'like',`%$query%`)->get();
-        if($product -> count() > 0)
+        $query = $request->query('query');
+        $product = Product::where('name', 'like',"%$query%")->first();
+        $a = $product -> count();
+        if( $a > 0)
         {
             return view('user.product-show-user', ['product'=> $product]);
         }

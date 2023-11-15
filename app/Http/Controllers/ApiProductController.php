@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
-use Faker\Provider\Lorem;
 use Illuminate\Http\Request;
 
 class ApiProductController extends Controller

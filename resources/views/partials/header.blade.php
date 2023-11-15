@@ -11,8 +11,9 @@
             </div>
             @yield('header')
         </div>
-        <div class="d-flex">
+        <div class="d-flex search-bar">
             <form action="/search" method="get">
+                @csrf
                 <input type="text" name="query" placeholder="Search...">
                 <button type="submit">Search</button>
             </form>
