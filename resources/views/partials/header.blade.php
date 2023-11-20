@@ -1,7 +1,7 @@
 <header>
     @show
     <div class="h-10px w-100 bg-light text-center text-dark p-2 mb-1 d-flex justify-content-between flex-row" id="">
-        <div class="d-flex align-items-center first flex-row col-4" id="navigation">
+        <div class="d-flex align-items-center first flex-row col-4 header" id="navigation">
             <div class="home">
                 <h3>
                     <a href="{{route('products.index')}}" class="nav-link text-dark nav" id="home">

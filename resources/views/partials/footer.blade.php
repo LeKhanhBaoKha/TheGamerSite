@@ -10,7 +10,7 @@
             <h3 class="m-0 pt-2">Lê Khánh Bảo Kha - 0306211041</h3>
         @endguest
     </div>
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <ul class="col-md-4 justify-content-end list-unstyled d-flex">
         <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-facebook"></i></h2></a></li>
         <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-google"></i></i></h2></a></li>
         <li class="m-3"><a class="text-dark" href="#"><h2><i class="fa-brands fa-youtube"></i></h2></a></li>

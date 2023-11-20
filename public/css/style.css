@@ -3,6 +3,10 @@
 	background: linear-gradient(to left, #7a60ff, #cd9ffa);
     background: linear-gradient(to left, rgba(51, 12, 206, 0.3), rgba(159, 140, 245, 0.2));
 } */
+a:hover{
+    text-decoration: none!important;
+}
+
 footer{
     background-color: white!important;
     color: black!important;
@@ -136,7 +140,16 @@ body {
     transition: 0.2s;
     border-radius: 10px;
 }
-div>a:hover{
+.header a:hover{
     transform: scale(1.03);
     transition: 0.2s;
 }
+
+.card-title .title {
+    transition: transform 0.3s ease!important;
+ }
+
+ .card-title .title:hover {
+    transform: translateX(5px)!important;
+ }
+

@@ -23,7 +23,7 @@
             <div class="card h-100">
                 <img src="{{$product->image}}" alt="img" class="card-img-top img-fluid" style="max-height: 120px; max-width:252px;">
                 <div class="card-body">
-                    <h4 class="card-title"><a href="{{route('products.usershow', ['product'=>$product])}}" style="color:black">{{$product->name}} </a> </h4>
+                    <h4 class="card-title"><a href="{{route('products.usershow', ['product'=>$product])}}" style="color:black" class="title">{{$product->name}} </a> </h4>
                     <p class="card-text text-success">${{ number_format($product->price, 2) }}</p>
                     <p class="card-text" id="des">{{$product->description}}</p>
                 </div>

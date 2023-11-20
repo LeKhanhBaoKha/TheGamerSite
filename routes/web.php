@@ -55,6 +55,10 @@ Route::controller(testlogin::class)->group(function(){
     Route::post('/testSignup', 'signup');
 });
 
+Route::get('/cart', function(){
+    return view('Shopping-card');
+});
+
 //bước 1 tạo model với tham số php artisan make:model category --all
 //bước 2 thêm các cột vào migration
 //bước 3 thêm một migration tạo khóa ngoại (php artisan make:migration foreign_keys)
