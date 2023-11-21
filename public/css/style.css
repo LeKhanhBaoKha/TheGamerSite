@@ -3,38 +3,33 @@
 	background: linear-gradient(to left, #7a60ff, #cd9ffa);
     background: linear-gradient(to left, rgba(51, 12, 206, 0.3), rgba(159, 140, 245, 0.2));
 } */
-a:hover{
-    text-decoration: none!important;
+a:hover {
+    text-decoration: none !important;
 }
 
-footer{
-    background-color: white!important;
-    color: black!important;
+footer {
+    background-color: white !important;
+    color: black !important;
     margin-top: auto;
 }
-p{
+p {
     overflow: hidden;
 }
-#des{
+#des {
     max-height: 50px;
 }
 
-label{
-    color:white;
+label {
+    color: white;
 }
 
-body{
+body {
     background: url(/images/pantheon.png) no-repeat fixed center;
-	background-size: cover;
+    background-size: cover;
 }
 
-
-.card::after{
-    background: linear-gradient(
-        transparent,
-        mediumslateblue,
-        transparent
-    );
+.card::after {
+    background: linear-gradient(transparent, #2196f3, transparent);
     height: 70px;
     width: 3px;
     position: absolute;
@@ -45,15 +40,14 @@ body{
     transition: top 600ms ease, opacity 600ms ease;
 }
 
-.card:hover::after{
-    top:10%;
+.card:hover::after {
+    top: 32%;
     opacity: 1;
 }
 
-.card{
+.card {
     position: relative;
 }
-
 
 /* logincss */
 body {
@@ -76,10 +70,11 @@ body {
     flex-direction: column;
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-
 }
 .brand_logo_container {
     position: absolute;
@@ -122,34 +117,34 @@ body {
     box-shadow: none !important;
     outline: 0px !important;
 }
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #c0392b !important;
 }
 
-#login-form{
-    margin-top:50px;
+#login-form {
+    margin-top: 50px;
 }
 
-.nav{
-    --clr:#34a5ff;
-}
-.nav:hover{
+.nav:hover {
     background: var(--clr);
     transform: scale(1.02);
     box-shadow: 0 0 35px var(--clr);
     transition: 0.2s;
     border-radius: 10px;
 }
-.header a:hover{
+.header a:hover {
     transform: scale(1.03);
     transition: 0.2s;
 }
 
-.card-title .title {
-    transition: transform 0.3s ease!important;
- }
+.card {
+    transition: transform 0.3s ease-in-out;
+}
 
- .card-title .title:hover {
-    transform: translateX(5px)!important;
- }
+.card .card-title {
+    transition: transform 0.3s ease-in-out;
+}
 
+.card:hover .card-title {
+    transform: translateX(5px);
+}
