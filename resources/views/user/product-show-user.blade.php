@@ -29,7 +29,9 @@
                 <p class="card-text">{{$product->description}}</p>
             </div>
             <div class="card-footer">
-                <a href="{{route('products.userindex')}}" class="btn btn-secondary">Turn back</a>
+                <a href="{{route('products.userindex')}}" class="btn btn-secondary turn-back centered" data-text="Turn back">
+                    <span><i class="fa-solid fa-left-long fa-2x"></i></span>
+                </a>
             </div>
         </div>
     </div>
